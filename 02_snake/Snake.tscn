@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b1oova6tjfpj"]
+
+[ext_resource type="Script" uid="uid://6oiuj13wkjgw" path="res://Snake.cs" id="1_ati24"]
+[ext_resource type="PackedScene" uid="uid://mreash6x8yxu" path="res://BodySegment.tscn" id="2_3oqyp"]
+
+[node name="Snake" type="Node2D" unique_id=1565970545]
+script = ExtResource("1_ati24")
+BodySegmentScene = ExtResource("2_3oqyp")
+
+[node name="Timer" type="Timer" parent="." unique_id=469698385]
+wait_time = 0.15
+autostart = true

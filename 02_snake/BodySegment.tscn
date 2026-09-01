@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mreash6x8yxu"]
+
+[ext_resource type="Script" uid="uid://cq0k540rtvo8u" path="res://BodySegment.cs" id="1_wemfg"]
+
+[node name="BodySegment" type="Node2D" unique_id=494363950]
+script = ExtResource("1_wemfg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2061769676]
+offset_right = 32.0
+offset_bottom = 32.0
+color = Color(0.5568265, 0.40908182, 1, 1)

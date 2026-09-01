@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d2lgva5pp4jo5"]
+
+[ext_resource type="Script" uid="uid://cmr2yisvr26pi" path="res://Level.cs" id="1_2nifc"]
+[ext_resource type="PackedScene" uid="uid://ca11d80nr768n" path="res://Food.tscn" id="1_bexhn"]
+[ext_resource type="PackedScene" uid="uid://b1oova6tjfpj" path="res://Snake.tscn" id="2_2nifc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkpl8"]
+font_size = 40
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.28627452)
+
+[sub_resource type="LabelSettings" id="LabelSettings_blp3x"]
+shadow_color = Color(0, 0, 0, 0.65882355)
+
+[node name="Level" type="Node2D" unique_id=1487328717]
+script = ExtResource("1_2nifc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=288966761]
+offset_right = 640.0
+offset_bottom = 640.0
+color = Color(0.28556, 0.66, 0.1716, 1)
+
+[node name="Snake" parent="." unique_id=1565970545 instance=ExtResource("2_2nifc")]
+
+[node name="Food" parent="." unique_id=287853219 instance=ExtResource("1_bexhn")]
+position = Vector2(102, 87)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2054768574]
+
+[node name="GameOverScreen" type="Control" parent="CanvasLayer" unique_id=-892086079]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 640.0
+
+[node name="Opaque" type="ColorRect" parent="CanvasLayer/GameOverScreen" unique_id=1575437576]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+color = Color(0.01, 0.01, 0.01, 0.6)
+
+[node name="GameOver" type="Label" parent="CanvasLayer/GameOverScreen" unique_id=858284343]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+text = "GAME
+OVER"
+label_settings = SubResource("LabelSettings_hkpl8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Label" parent="CanvasLayer/GameOverScreen" unique_id=1404778313]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 377.0
+offset_right = 413.0
+offset_bottom = 400.0
+text = "Press Space to Restart"
+label_settings = SubResource("LabelSettings_blp3x")
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=762176197]
+offset_left = 286.0
+offset_top = 2.0
+offset_right = 347.0
+offset_bottom = 25.0
+text = "Score: 0"

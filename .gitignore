@@ -1,0 +1,36 @@
+# ---- Godot 4+ ----
+.godot/
+.import/
+export_presets.cfg
+export_credentials.cfg
+*.translation
+.mono/
+data_*/
+/android/
+
+# ---- .NET / C# build output ----
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# ---- Visual Studio ----
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ---- Rider / JetBrains ----
+.idea/
+*.DotSettings.user
+
+# ---- NuGet ----
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# ---- macOS ----
+.DS_Store

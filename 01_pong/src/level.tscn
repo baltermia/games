@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ci3qp4vsx1wx2"]
+
+[ext_resource type="PackedScene" uid="uid://rghwkoed68hb" path="res://src/paddle.tscn" id="1_4q7qo"]
+[ext_resource type="Script" uid="uid://ytk3ei8odvl7" path="res://src/Level.cs" id="1_68xyb"]
+[ext_resource type="PackedScene" uid="uid://bm3i16peaogs0" path="res://src/ball.tscn" id="2_68xyb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_68xyb"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_feg4a"]
+font_size = 32
+
+[node name="Level" type="Node2D" unique_id=1342120433]
+script = ExtResource("1_68xyb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1454355557]
+offset_right = 960.0
+offset_bottom = 672.0
+color = Color(0, 0.046534795, 0.16423267, 1)
+
+[node name="Paddle1" parent="." unique_id=1638692782 instance=ExtResource("1_4q7qo")]
+position = Vector2(928, 320)
+
+[node name="Paddle2" parent="." unique_id=484223825 instance=ExtResource("1_4q7qo")]
+position = Vector2(32, 320)
+UpAction = &"p2_up"
+DownAction = &"p2_down"
+
+[node name="Ball" parent="." unique_id=1683667116 instance=ExtResource("2_68xyb")]
+position = Vector2(512, 320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=858985833]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1571191492]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 112.0
+offset_bottom = 24.0
+
+[node name="Score1" type="Label" parent="CanvasLayer/Control" unique_id=1837944133]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 56.0
+text = "Left: 0"
+label_settings = SubResource("LabelSettings_68xyb")
+
+[node name="Score2" type="Label" parent="CanvasLayer/Control" unique_id=160563549]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 8.0
+offset_right = 946.0
+offset_bottom = 64.0
+text = "Right: 0"
+label_settings = SubResource("LabelSettings_feg4a")
+horizontal_alignment = 2

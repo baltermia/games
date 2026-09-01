@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rghwkoed68hb"]
+
+[ext_resource type="Script" uid="uid://bgarmrw0m6gg4" path="res://src/Paddle.cs" id="1_3r4wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkpl8"]
+size = Vector2(32, 128)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=1638692782]
+script = ExtResource("1_3r4wq")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=42990319]
+position = Vector2(7.1525574e-07, 4.7683716e-06)
+scale = Vector2(0.25, 0.33333334)
+polygon = PackedVector2Array(-64, -192, 64, -192, 64, 192, -64, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=579136804]
+shape = SubResource("RectangleShape2D_hkpl8")

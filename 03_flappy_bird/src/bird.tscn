@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://djecfjb5wt7sf"]
+
+[ext_resource type="Texture2D" uid="uid://cvh72vug8tae0" path="res://assets/bird/frame_01.png" id="1_cchwj"]
+[ext_resource type="Texture2D" uid="uid://cibtiy32duwny" path="res://assets/bird/frame_02.png" id="2_6ljjq"]
+[ext_resource type="Texture2D" uid="uid://djxmvs7kv5y6p" path="res://assets/bird/frame_03.png" id="3_axl6x"]
+[ext_resource type="Texture2D" uid="uid://diiafc2hf03vw" path="res://assets/bird/frame_04.png" id="4_yr30m"]
+[ext_resource type="Script" uid="uid://bl4v84opqnrbq" path="res://src/Bird.cs" id="5_31b7d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkpl8"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("1_cchwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6ljjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_axl6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yr30m")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blp3x"]
+radius = 415.0
+height = 1052.0
+
+[node name="Bird" type="AnimatedSprite2D" unique_id=1882501113 node_paths=PackedStringArray("Hitbox", "HitboxShape")]
+sprite_frames = SubResource("SpriteFrames_hkpl8")
+animation = &"fly"
+autoplay = "fly"
+script = ExtResource("5_31b7d")
+Hitbox = NodePath("Area2D")
+HitboxShape = NodePath("Area2D/CollisionShape2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2113206865]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1502019230]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_blp3x")

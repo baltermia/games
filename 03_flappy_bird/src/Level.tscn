@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cwxnyrudhrg3p"]
+
+[ext_resource type="Script" uid="uid://23r5bxy7bc0x" path="res://src/Level.cs" id="1_6flpr"]
+[ext_resource type="Texture2D" uid="uid://dy4fjvrhcb7ms" path="res://assets/background.png" id="1_jd4tk"]
+[ext_resource type="PackedScene" uid="uid://djecfjb5wt7sf" path="res://src/bird.tscn" id="2_k1whu"]
+[ext_resource type="PackedScene" uid="uid://u757yvnkcknx" path="res://src/pipe_pair.tscn" id="3_ty7k0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6flpr"]
+font_size = 30
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 25
+shadow_color = Color(0.31, 0.31, 0.31, 0.62352943)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_blp3x"]
+font_size = 78
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 25
+shadow_color = Color(0.31, 0.31, 0.31, 0.62352943)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8icf"]
+font_size = 40
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 25
+shadow_color = Color(0.31, 0.31, 0.31, 0.62352943)
+shadow_offset = Vector2(3, 3)
+
+[node name="Level" type="Node2D" unique_id=2043980496 node_paths=PackedStringArray("GameOverLayer", "Score")]
+script = ExtResource("1_6flpr")
+GameOverLayer = NodePath("Overlay/GameOver")
+Score = NodePath("Overlay/Score")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2012433390]
+position = Vector2(350, 450)
+texture = ExtResource("1_jd4tk")
+
+[node name="Bird" parent="." unique_id=1882501113 instance=ExtResource("2_k1whu")]
+position = Vector2(350, 450)
+scale = Vector2(0.10351562, 0.10351562)
+
+[node name="PipePair" parent="." unique_id=1634416445 instance=ExtResource("3_ty7k0")]
+position = Vector2(577, 441)
+scale = Vector2(0.6, 0.6)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1505367702]
+
+[node name="GameOver" type="Control" parent="Overlay" unique_id=744503056]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Overlay/GameOver" unique_id=1993151602]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 900.0
+color = Color(0.42, 0.08399999, 0.08399999, 0.5882353)
+
+[node name="RestartLabel" type="Label" parent="Overlay/GameOver" unique_id=1554716368]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 558.0
+offset_right = 700.0
+offset_bottom = 600.0
+text = "Press <Tab> to restart"
+label_settings = SubResource("LabelSettings_6flpr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="Overlay/GameOver" unique_id=1127704924]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 900.0
+text = "GAME
+OVER"
+label_settings = SubResource("LabelSettings_blp3x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Overlay" unique_id=154612430]
+offset_right = 700.0
+offset_bottom = 101.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_a8icf")
+horizontal_alignment = 1

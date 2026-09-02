@@ -1,0 +1,30 @@
+<Project>
+
+  <!--
+    Shared MSBuild settings for every project in this repo.
+    MSBuild walks up the folder tree from each .csproj and imports the FIRST
+    Directory.Build.props it finds. Godot.NET.Sdk imports it very early, so
+    properties set here (TargetFramework included) are visible to the whole build.
+    Put anything common here; keep the individual .csproj files empty.
+  -->
+
+  <PropertyGroup>
+    <!-- One knob to move every game to a new runtime. .NET 10 = current LTS. -->
+    <TargetFramework>net10.0</TargetFramework>
+
+    <!-- Required so Godot can load the game assembly as a hot-reloadable plugin. -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+
+    <!-- Roslyn analyzers on, newest rule set. -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+
+    <!-- Flip to true once the current nullable/analyzer warnings are burned down. -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+</Project>

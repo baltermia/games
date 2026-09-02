@@ -16,16 +16,16 @@ public partial class Snake : Node2D
     [Export] public StringName RightAction { get; set; } = "ui_right";
     [Export] public StringName AcceptAction { get; set; } = "ui_accept";
 	
-    [Export] public PackedScene BodySegmentScene { get; set; }
-	
-    private Timer _timer;
-    private Food _food;
+    [Export] public PackedScene BodySegmentScene { get; set; } = null!;
+
+    private Timer _timer = null!;
+    private Food _food = null!;
 
     private Vector2 _viewSize;
     private Direction _direction = Direction.Right;
     private Direction _lastMovedDirection = Direction.Right;
     private readonly Queue<BodySegment> _segments = new();
-    private BodySegment _head;
+    private BodySegment _head = null!;
 	
     private enum Direction
     {

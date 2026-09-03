@@ -9,11 +9,11 @@
   -->
 
   <PropertyGroup>
-    <!-- One knob to move every game to a new runtime. .NET 10 = current LTS. -->
-    <TargetFramework>net10.0</TargetFramework>
-
-    <!-- Required so Godot can load the game assembly as a hot-reloadable plugin. -->
-    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <!--
+      TargetFramework stays in each .csproj: Godot's editor rewrites the csproj and
+      re-adds net8.0 whenever the property is absent. It leaves an existing value alone,
+      so pin net10.0 there. Everything else is centralized here.
+    -->
 
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>

@@ -1,3 +1,7 @@
 <Project Sdk="Godot.NET.Sdk/4.7.2">
-  <!-- All shared settings live in ..\Directory.Build.props -->
+  <!-- Shared settings: ..\Directory.Build.props -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
 </Project>

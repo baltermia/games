@@ -62,8 +62,7 @@ public partial class Ball : CharacterBody2D
         // Bounce() reflects the velocity perfectly off whatever was hit.
         Velocity = Velocity.Bounce(collision.GetNormal());
 
-        // TODO: switch to Brick.GroupName once Brick.cs exists (next step).
-        if (collision.GetCollider() is Node node && node.IsInGroup("bricks"))
+        if (collision.GetCollider() is Node node && node.IsInGroup(Brick.GroupName))
         {
             node.QueueFree();
             EventBus.Instance.EmitSignal(EventBus.SignalName.Scored);

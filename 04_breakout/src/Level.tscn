@@ -1,8 +1,11 @@
 [gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://src/paddle.tscn" id="1_paddle"]
+[ext_resource type="PackedScene" path="res://src/ball.tscn" id="2_ball"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Paddle" parent="." instance=ExtResource("1_paddle")]
 position = Vector2(320, 680)
+
+[node name="Ball" parent="." instance=ExtResource("2_ball")]

@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/Paddle.cs" id="1_paddle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paddle"]
+size = Vector2(128, 32)
+
+[node name="Paddle" type="CharacterBody2D" node_paths=PackedStringArray("CollisionShape")]
+script = ExtResource("1_paddle")
+CollisionShape = NodePath("CollisionShape2D")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_paddle")

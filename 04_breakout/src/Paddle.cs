@@ -20,6 +20,21 @@ public partial class Paddle : CharacterBody2D
 
         RectangleShape2D shape = (RectangleShape2D)CollisionShape.Shape;
         _halfWidth = shape.Size.X / 2;
+
+        EventBus.Instance.GameOver += OnGameEnded;
+        EventBus.Instance.Won += OnGameEnded;
+        EventBus.Instance.Restart += OnRestart;
+    }
+
+    private void OnGameEnded()
+    {
+        SetProcess(false);
+    }
+
+    private void OnRestart()
+    {
+        SetProcess(true);
+        Position = new Vector2(GetViewportRect().Size.X / 2, Position.Y);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -18,6 +18,7 @@ public partial class Ball : CharacterBody2D
         _radius = shape.Radius;
 
         EventBus.Instance.Restart += OnRestart;
+        EventBus.Instance.Won += OnWon;
 
         Launch();
     }
@@ -34,6 +35,11 @@ public partial class Ball : CharacterBody2D
     {
         SetProcess(true);
         Launch();
+    }
+
+    private void OnWon()
+    {
+        SetProcess(false);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

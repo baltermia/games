@@ -1,15 +1,89 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cga6puxfb63q5"]
 
 [ext_resource type="PackedScene" path="res://src/paddle.tscn" id="1_paddle"]
 [ext_resource type="PackedScene" path="res://src/ball.tscn" id="2_ball"]
-[ext_resource type="Script" path="res://src/Level.cs" id="3_level"]
+[ext_resource type="Script" uid="uid://c72xt4d656pnt" path="res://src/Level.cs" id="3_level"]
 [ext_resource type="PackedScene" path="res://src/brick.tscn" id="4_brick"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=1562133108 node_paths=PackedStringArray("ScoreLabel", "GameOverOverlay", "WonOverlay")]
 script = ExtResource("3_level")
 BrickScene = ExtResource("4_brick")
+ScoreLabel = NodePath("CanvasLayer/ScoreLabel")
+GameOverOverlay = NodePath("CanvasLayer/GameOverOverlay")
+WonOverlay = NodePath("CanvasLayer/WonOverlay")
 
-[node name="Paddle" parent="." instance=ExtResource("1_paddle")]
+[node name="Paddle" parent="." unique_id=1310682371 instance=ExtResource("1_paddle")]
 position = Vector2(320, 680)
 
-[node name="Ball" parent="." instance=ExtResource("2_ball")]
+[node name="Ball" parent="." unique_id=1793578971 instance=ExtResource("2_ball")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1035695478]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=944905183]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 40.0
+text = "Score: 0"
+
+[node name="GameOverOverlay" type="Control" parent="CanvasLayer" unique_id=1606101568]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOverOverlay" unique_id=1502498037]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 720.0
+color = Color(0.42, 0.084, 0.084, 0.588)
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverOverlay" unique_id=1437453271]
+layout_mode = 0
+offset_top = 260.0
+offset_right = 640.0
+offset_bottom = 100.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="CanvasLayer/GameOverOverlay" unique_id=2115841054]
+layout_mode = 0
+offset_top = 380.0
+offset_right = 640.0
+offset_bottom = 420.0
+text = "Press Enter to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WonOverlay" type="Control" parent="CanvasLayer" unique_id=1520919184]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/WonOverlay" unique_id=1090140629]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 720.0
+color = Color(0.084, 0.42, 0.126, 0.588)
+
+[node name="WonLabel" type="Label" parent="CanvasLayer/WonOverlay" unique_id=1313715597]
+layout_mode = 0
+offset_top = 260.0
+offset_right = 640.0
+offset_bottom = 360.0
+text = "YOU WIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="CanvasLayer/WonOverlay" unique_id=842845903]
+layout_mode = 0
+offset_top = 380.0
+offset_right = 640.0
+offset_bottom = 420.0
+text = "Press Enter to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1

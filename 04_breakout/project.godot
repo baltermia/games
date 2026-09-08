@@ -25,3 +25,7 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Breakout"
+
+[autoload]
+
+EventBus="*res://src/EventBus.cs"
